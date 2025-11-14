@@ -13,17 +13,18 @@ This docker compose should be all that you need to run & configure ActualT212Syn
 ```yaml
 services:
   actual-t212:
-    build: .
+    image: ghcr.io/tolleylikesrice/actualt212sync:main
     container_name: ActualT212Sync
     restart: unless-stopped
     environment:
-      - ACTUAL_PASSWORD="XXX"
-      - ACTUAL_SYNC_ID="XXX"
-      - ACTUAL_ACCOUNT_NAME="XXX"
-      - T212_API_KEY="XXX"
-      - T212_API_SECRET="XXX"
-      - CRON_SCHEDULE="0 23 * * *"
-      - TZ="UTC"
+      - ACTUAL_URL=https://xxx.uk
+      - ACTUAL_PASSWORD=XXX
+      - ACTUAL_SYNC_ID=XXX
+      - ACTUAL_ACCOUNT_NAME=XXX
+      - T212_API_KEY=XXX
+      - T212_API_SECRET=XXX
+      - CRON_SCHEDULE=0 23 * * *
+      - TZ=UTC
 ```
 
 You can create an API key from your Trading 212 account settings page, the only permission needed is "Account data".
