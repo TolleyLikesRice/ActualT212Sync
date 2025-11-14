@@ -1,0 +1,6 @@
+services:
+  actual-t212:
+    build: .
+    container_name: ActualT212Sync
+    env_file:
+      - .env

@@ -1,0 +1,19 @@
+{
+  "name": "ActualT212Sync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch --env-file=.env index.js"
+  },
+  "keywords": [],
+  "author": "TolleyLikesRice",
+  "license": "ISC",
+  "packageManager": "pnpm@10.20.0",
+  "dependencies": {
+    "@actual-app/api": "^25.11.0",
+    "cron": "^4.3.4"
+  }
+}
