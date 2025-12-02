@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch --env-file=.env index.js"
+    "dev": "node --watch --env-file=.env index.js",
+    "dev:sync": "node --watch --env-file=.env manual-sync.js"
   },
   "keywords": [],
   "author": "TolleyLikesRice",

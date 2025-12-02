@@ -38,7 +38,7 @@ export default async function sync() {
 
   console.log(`Current Trading 212 balance: ${currentT212Data.total}`);
 
-  const balanceChange = currentT212Data.total * 100 - currentActualBalance;
+  const balanceChange = Math.floor(currentT212Data.total * 100 - currentActualBalance);
 
   if (balanceChange === 0) {
     console.log("No balance adjustment required.");

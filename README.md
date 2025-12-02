@@ -2,7 +2,7 @@
 
 ## What?
 
-An script to sync the total balance of a Trading 212 account with ActualBudget.
+An script to sync the total balance of a Trading 212 account with ActualBudget. By far not my finest work, but it's good enough for me.
 
 ## Usage
 
