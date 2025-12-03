@@ -36,6 +36,10 @@ export default async function sync() {
     })
   ).json();
 
+  if (process.env.DEBUG.toLowerCase() === "true") {
+    console.log("DEBUG: T212 API Response:", currentT212Data);
+  }
+
   console.log(`Current Trading 212 balance: ${currentT212Data.total}`);
 
   const balanceChange = Math.floor(currentT212Data.total * 100 - currentActualBalance);
