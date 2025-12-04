@@ -28,21 +28,27 @@ export default async function sync() {
 
   console.log(`Current ActualBudget balance: ${currentActualBalance / 100}`);
 
-  const currentT212Data = await (
-    await fetch("https://live.trading212.com/api/v0/equity/account/cash", {
-      headers: {
-        Authorization: `Basic ${Buffer.from(`${process.env.T212_API_KEY}:${process.env.T212_API_SECRET}`).toString("base64")}`,
-      },
-    })
-  ).json();
+  const T212Request = await fetch("https://live.trading212.com/api/v0/equity/account/summary", {
+    headers: {
+      Authorization: `Basic ${Buffer.from(`${process.env.T212_API_KEY}:${process.env.T212_API_SECRET}`).toString("base64")}`,
+    },
+  });
+
+  const currentT212Data = await T212Request.json();
+  const T212Balance = currentT212Data.totalValue;
 
   if (process.env.DEBUG.toLowerCase() === "true") {
     console.log("DEBUG: T212 API Response:", currentT212Data);
+    console.log("DEBUG: T212 API Response Headers:", T212Request.headers);
   }
 
-  console.log(`Current Trading 212 balance: ${currentT212Data.total}`);
+  if (T212Balance === undefined) {
+    throw new Error("Failed to retrieve Trading 212 balance. Unexpected API response.");
+  }
 
-  const balanceChange = Math.floor(currentT212Data.total * 100 - currentActualBalance);
+  console.log(`Current Trading 212 balance: ${T212Balance}`);
+
+  const balanceChange = Math.floor(T212Balance * 100 - currentActualBalance);
 
   if (balanceChange === 0) {
     console.log("No balance adjustment required.");
