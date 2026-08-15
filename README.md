@@ -6,7 +6,7 @@ An script to sync the total balance of a Trading 212 account with ActualBudget. 
 
 ## Usage
 
-There is an included Dockerfile, which is published to Docker Hub, or you can build locally if you prefer.
+There is an included Dockerfile, which is published to GHCR, or you can build locally if you prefer.
 
 This docker compose should be all that you need to run & configure ActualT212Sync:
 
